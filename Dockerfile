@@ -9,8 +9,8 @@ RUN apt-get install -y nodejs unzip git
 WORKDIR /var/www/html
 COPY . .
 ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN composer update --no-scripts
-RUN composer install --prefer-dist --no-scripts --no-dev --optimize-autoloader --no-interaction
+RUN composer install --no-dev --no-interaction
+RUN composer update
 
 RUN npm install && npm run build
 
