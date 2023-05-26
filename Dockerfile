@@ -1,19 +1,34 @@
-FROM composer:2.0 as build
-COPY . /app/
-RUN composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+FROM php:apache
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-FROM php:8.0-apache-buster as production
+RUN apt-get update 
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+
+RUN apt-get install -y nodejs unzip git
+
+WORKDIR /var/www/html
+COPY . .
+ENV COMPOSER_ALLOW_SUPERUSER=1
+RUN composer update --no-scripts
+RUN composer install --prefer-dist --no-scripts --no-dev --optimize-autoloader --no-interaction
+
+RUN npm install && npm run build
+
+#ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+#RUN chmod +x /usr/local/bin/install-php-extensions && \
+   # install-php-extensions pdo_mysql
+
+RUN docker-php-ext-configure opcache --enable-opcache 
+#RUN docker-php-ext-enable pdo_mysql.so
+
+COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY .env.prod /var/www/html/.env
 
 ENV APP_NAME=Food-E
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 
-RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install pdo pdo_sqlite pdo_mysql sqlite3
-
-COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-
-COPY --from=build /app /var/www/html
-COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY .env.prod /var/www/html/.env
-
-RUN php artisan config:cache && php artisan route:cache && chmod 777 -R /var/www/html/storage/ && chown -R www-data:www-data /var/www/ && a2enmod rewrite
+RUN php artisan config:cache && php artisan route:cache 
+RUN chmod 777 -R /var/www/html/storage/ && chown -R www-data:www-data /var/www/ && a2enmod rewrite
