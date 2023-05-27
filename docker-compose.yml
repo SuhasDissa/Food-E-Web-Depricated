@@ -2,12 +2,8 @@ version: '3'
 services:
   app:
     container_name: "foode_web"
+    network_mode: "host"
     build:
       context: ./
 #    volumes:
 #      - .:/var/www/html
-    ports:
-      - "80:80"
-    environment:
-      - APP_ENV=local
-      - APP_DEBUG=false
