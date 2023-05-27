@@ -1,3 +1,5 @@
+#!/bin/bash -i
+
 docker-compose build app
 docker-compose up -d
 echo "APP_NAME=Food-E
@@ -11,4 +13,4 @@ docker exec food_e php artisan key:generate
 docker exec food_e php artisan config:cache
 docker exec food_e php artisan route:cache
 docker exec food_e php artisan view:cache
-docker exec food_e php artisan migrate
+docker exec food_e php artisan migrate --force

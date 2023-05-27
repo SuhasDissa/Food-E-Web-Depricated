@@ -16,7 +16,7 @@ Run the following commands
 ```bash
 git clone https://github.com/SuhasDissa/Food-E-Web.git
 cd Food-E-Web
-chmod -x setup.sh
+chmod +x setup.sh
 ./setup.sh
 ```
 
@@ -53,5 +53,9 @@ docker exec food_e npm install
 docker exec food_e npm run build
 
 docker exec food_e php artisan key:generate
+docker exec food_e php artisan config:cache
+docker exec food_e php artisan route:cache
+docker exec food_e php artisan view:cache
+docker exec food_e php artisan migrate
 ```
 Now you can access this app from `http://localhost:80`
