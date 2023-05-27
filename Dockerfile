@@ -1,4 +1,4 @@
-FROM php:8.1-rc-fpm-bullseye AS base
+FROM php:8.2-fpm-bullseye AS base
 COPY docker-compose/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 RUN apt-get update 
