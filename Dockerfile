@@ -1,33 +1,33 @@
-FROM php:apache AS base
-COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+FROM php:8.1-rc-fpm-bullseye AS base
+COPY docker-compose/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 RUN apt-get update 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 
-RUN apt-get install -y nodejs unzip git
+RUN apt-get install -y \
+   nodejs \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
-#ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-
-#RUN chmod +x /usr/local/bin/install-php-extensions && \
-   # install-php-extensions pdo_mysql
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-configure opcache --enable-opcache 
-#RUN docker-php-ext-enable pdo_mysql.so
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
+ARG user
+ARG uid
 
-FROM base
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
 
-WORKDIR /var/www/html
-COPY . .
-RUN mv .env.production .env
-ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN composer install --no-dev --no-interaction
-RUN composer update
-RUN npm install && npm run build
+# Set working directory
+WORKDIR /var/www
 
-RUN php artisan config:cache && php artisan route:cache 
-RUN chmod 777 -R /var/www/html/storage/
-RUN chown -R www-data:www-data /var/www/
-RUN a2enmod rewrite
+USER $user
