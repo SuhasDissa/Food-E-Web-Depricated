@@ -7,7 +7,21 @@ This is the web version of my "FoodE" app. This has all the features of the Andr
 
 ## Quick start guide
 
-You need to have docker and docker-compose installed on your system
+I recommend you to run this on github codespaces
+Fork this repo and open it in github codespaces
+
+### Quick Installation
+
+Run the following commands
+```bash
+git clone https://github.com/SuhasDissa/Food-E-Web.git
+cd Food-E-Web
+chmod -x setup.sh
+./setup.sh
+```
+
+### Manual Installation
+
 #### Step 1
 Clone this repository to your system
 
