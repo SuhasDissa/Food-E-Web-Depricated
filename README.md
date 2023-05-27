@@ -13,6 +13,7 @@ This is the web version of my "FoodE" app. This has all the features of the Andr
 <img src="https://github.com/SuhasDissa/Food-E-Web/assets/64766434/46452c75-0466-45a7-8c3d-a20d3417553a" width="50%">
 <br/>
 </p>
+
 ## Quick start guide
 
 I recommend you to run this on github codespaces
