@@ -3,4 +3,5 @@ builder = "dockerfile"
 dockerfilePath = "Dockerfile.production"
 
 [deploy]
-restartPolicyType = "never"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
