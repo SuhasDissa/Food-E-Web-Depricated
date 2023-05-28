@@ -7,8 +7,7 @@
             </a>
             <form method="get" action="{{ url('additives') }}">
                 <div class="flex flex-row items-center">
-                    <x-input-label for="search" :value="__('Search')" class="text-xl pr-4" />
-                    <x-text-input id="search" name="q" type="text" class="mt-1 block w-full" required />
+                    <x-text-input name="q" type="text" class="mt-1 block w-full" :placeholder="__('Search')" required />
                 </div>
             </form>
         </div>

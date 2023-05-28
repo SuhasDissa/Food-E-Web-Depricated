@@ -10,25 +10,25 @@
     </x-slot>
 
     <div class="flex flex-col justify-center pt-6 max-w-7xl mx-auto">
-        <div class="p-4 flex flex-row">
+        <div class="p-4 flex flex-col sm:flex-row">
             <div
-                class="p-4 w-full flex flex-row mr-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
+                class="mx-2 py-2 w-full flex flex-row sm:mr-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
                 <p class="text-xl p-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
                     {{ $additive->title }}
                 </p>
                 <p class="text-lg p-4 text-gray-600 dark:text-gray-200">{{ $additive->e_code }}</p>
             </div>
             <div
-                class="p-4 w-full flex flex-row ml-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
+                class="mx-2 py-2 w-full flex flex-row mt-8 sm:mt-0 sm:ml-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
                 <p class="text-xl p-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
                     {{ __('Additive Type') }}
                 </p>
                 <p class="text-lg p-4 text-gray-600 dark:text-gray-200">{{ $additive->e_type }}</p>
             </div>
         </div>
-        <div class="p-4 flex flex-row">
+        <div class="p-4 flex flex-col sm:flex-row">
             <div
-                class="w-full p-4 mr-4 flex flex-row justify-between  rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
+                class="mx-2 py-2 w-full flex flex-row sm:mr-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
                 <p class="text-xl p-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
                     {{ __('Halal Status') }}
                 </p>
@@ -45,7 +45,7 @@
                 </p>
             </div>
             <div
-                class="w-full p-4 ml-4 flex flex-row justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
+                class="mx-2 py-2 w-full flex flex-row mt-8 sm:mt-0 sm:ml-4 justify-between rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
                 <p class="text-xl p-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
                     {{ __('Health Rating') }}
                 </p>
@@ -69,9 +69,9 @@
                 </p>
             </div>
         </div>
-        <div class="p-4">
+        <div class="p-4 flex">
             <div
-                class="p-4  items-center rounded-lg shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
+                class="mx-2 py-2 w-full items-center rounded-lg shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800">
                 <p class="text-xl p-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
                     {{ __('Description') }}
                 </p>
