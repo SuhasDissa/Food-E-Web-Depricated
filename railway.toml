@@ -1,0 +1,6 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile.production"
+
+[deploy]
+restartPolicyType = "never"
