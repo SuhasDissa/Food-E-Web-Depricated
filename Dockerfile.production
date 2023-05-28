@@ -37,9 +37,7 @@ USER $user
 
 COPY . .
 
-RUN echo "APP_NAME=Food-E
-APP_KEY=
-DB_CONNECTION=sqlite" > .env
+RUN printf "APP_NAME=Food-E\nAPP_KEY=\nDB_CONNECTION=sqlite" > .env
 
 RUN composer install --optimize-autoloader --no-dev
 RUN npm install
