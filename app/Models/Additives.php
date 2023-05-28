@@ -9,7 +9,6 @@ class Additives extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $connection = 'sqlite_additives';
 
      /**
      * The attributes that are mass assignable.

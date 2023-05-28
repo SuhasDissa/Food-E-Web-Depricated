@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 
     return view('dashboard');
     
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,13 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/additive/{additive}', [AdditivesController::class, 'show'])->middleware(['auth', 'verified'])->name('additive.show');
+Route::get('/additive/{additive}', [AdditivesController::class, 'show'])->name('additive.show');
 
 Route::get('/edit/{additive}', [AdditivesController::class, 'edit'])->middleware(['auth', 'verified'])->name('additive.edit');
 
 Route::patch('/additive', [AdditivesController::class, 'update'])->middleware(['auth', 'verified'])->name('additive.update');
 
-Route::get('/additives', [AdditivesController::class, 'index'])->middleware(['auth', 'verified'])->name('additive.index');
+Route::get('/additives', [AdditivesController::class, 'index'])->name('additive.index');
 
 Route::get('/api/all', [AdditivesController::class, 'api_index'])->name('api.all');
 

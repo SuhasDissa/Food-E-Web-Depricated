@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        /*
-        Schema::connection('sqlite_additives')->create('additives', function (Blueprint $table) {
+        Schema::create('additives', function (Blueprint $table) {
             $table->id();
             $table-> string("e_code");
             $table-> string("title");
@@ -22,7 +21,6 @@ return new class extends Migration
             $table -> unsignedInteger("favourite");
             $table -> unsignedInteger("health_rating");
         });
-        */
     }
 
     /**
