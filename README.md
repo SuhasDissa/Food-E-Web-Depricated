@@ -5,6 +5,15 @@ This is the web version of my "FoodE" app. This has all the features of the Andr
 - People can Update or modify Additive details
 - This app provides a user friendly REST API
 
+<p align="center">
+<img src="https://github.com/SuhasDissa/Food-E-Web/assets/64766434/63db7598-a749-454d-9426-c288ff47c14e" width="80%">
+<br/>
+<img src="https://github.com/SuhasDissa/Food-E-Web/assets/64766434/0e20b23f-4253-4833-a53c-20eb32149100" width="80%">
+<br/>
+<img src="https://github.com/SuhasDissa/Food-E-Web/assets/64766434/46452c75-0466-45a7-8c3d-a20d3417553a" width="50%">
+<br/>
+</p>
+
 ## Quick start guide
 
 I recommend you to run this on github codespaces
