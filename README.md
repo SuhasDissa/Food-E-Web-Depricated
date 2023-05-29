@@ -14,8 +14,11 @@ This is the web version of my "FoodE" app. This has all the features of the Andr
 <br/>
 </p>
 
-## Quick start guide
+## Deploy on Railway
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/SjYZFB?referralCode=7A7Ugv)
+
+## Quick start guide
 I recommend you to run this on github codespaces
 Fork this repo and open it in github codespaces
 
@@ -23,8 +26,8 @@ Fork this repo and open it in github codespaces
 
 Run the following commands
 ```bash
-git clone https://github.com/SuhasDissa/Food-E-Web.git
-cd Food-E-Web
+git clone https://github.com/SuhasDissa/Food-E-Web.git # No need when using Codespaces
+cd Food-E-Web # No need when using Codespaces
 chmod +x setup.sh
 ./setup.sh
 ```
