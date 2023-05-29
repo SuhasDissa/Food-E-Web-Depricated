@@ -15,15 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-}) ->name('home');
-
-Route::get('/dashboard', function () {
-
-    return view('dashboard');
-    
-})->name('dashboard');
+Route::get('/', [AdditivesController::class, 'statistics'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,10 +30,5 @@ Route::get('/edit/{additive}', [AdditivesController::class, 'edit'])->middleware
 Route::patch('/additive', [AdditivesController::class, 'update'])->middleware(['auth', 'verified'])->name('additive.update');
 
 Route::get('/additives', [AdditivesController::class, 'index'])->name('additive.index');
-
-Route::get('/api/all', [AdditivesController::class, 'api_index'])->name('api.all');
-
-Route::get('/api/{additive}', [AdditivesController::class, 'api_show'])->name('api.show');
-
 
 require __DIR__.'/auth.php';

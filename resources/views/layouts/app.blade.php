@@ -32,12 +32,11 @@
             </header>
         @endif
 
-        <div class="flex flex-row h-full">
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+        <!-- Page Content -->
+        <main>
+            {{ $slot }}
+        </main>
+
     </div>
 </body>
 
