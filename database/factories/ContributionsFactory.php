@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class AdditivesFactory extends Factory
+class ContributionsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,13 +17,7 @@ class AdditivesFactory extends Factory
     public function definition(): array
     {
         return [
-            'e_code' => "",
-            'title' => "",
-            'info' => "",
-            'e_type' => "",
-            'halal_status' => 0,
-            'favourite' => 0,
-            'health_rating' => 0,
+            'contribution_count' => 0,
         ];
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Additives;
-use Illuminate\Http\Request;
+use App\Models\Contributions;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class AdditivesController extends Controller
@@ -14,9 +15,9 @@ class AdditivesController extends Controller
         return view('additive/show', compact('additive'));
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $q = $request->input('q');
+        $q = request()->input('q');
         if ($q) {
             $additives = Additives::where('e_code', 'like', '%' . $q . '%')->orWhere('title', 'like', '%' . $q . '%')->get();
         } else {
@@ -31,9 +32,9 @@ class AdditivesController extends Controller
         return view('additive/edit', compact('additive'));
     }
 
-    public function update(Request $request): RedirectResponse
+    public function update(): RedirectResponse
     {
-        $data = $request->validate([
+        $data = request()->validate([
             'id' => 'required|integer',
             'e_code' => 'required|uppercase|max:6',
             'title' => 'required|string',
@@ -45,9 +46,15 @@ class AdditivesController extends Controller
 
         $additive = Additives::find($data['id']);
 
+        $user_id = Auth::id();
+        $contributions = Contributions::firstOrNew(['user_id' => $user_id]);
+        $contributions->contribution_count += 1;
+        $contributions->user_id = $user_id;
+        $contributions->save();
+
         $additive->update($data);
 
-        return Redirect::route('additive.show', ['additive' => $request->input('id')])->with('status', 'additive-updated');
+        return Redirect::route('additive.show', ['additive' => request()->input('id')])->with('status', 'additive-updated');
     }
 
     public function statistics()
