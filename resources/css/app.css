@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.additive-card {
+    @apply p-4 rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-200 hover:-translate-y-1;
+}
+
+.additive-card .title {
+    @apply text-xl font-bold leading-relaxed text-gray-800 dark:text-gray-300;
+}
+
+.additive-card .subtitle {
+    @apply text-lg text-gray-600 dark:text-gray-200;
+}

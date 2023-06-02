@@ -34,27 +34,7 @@
             </div>
         @endif
 
-
-        <div class="relative sm:py-16">
-            <div class="max-w-md px-4 mx-auto sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-                <div
-                    class="px-10 py-16 text-center overflow-hidden shadow-xl rounded-3xl bg-indigo-600 dark:bg-indigo-950 sm:px-12 sm:py-20">
-                    <h2 class="text-4xl font-extrabold text-white tracking-tight sm:text-4.5xl font-display">
-                        Get notified when we add new designs.
-                    </h2>
-                    <p class="max-w-2xl mx-auto mt-6 text-lg text-cool-indigo-100">
-                        Twice a month I share the best Tailwind templates, UI kits and components in <strong>my
-                            newsletter</strong>. <strong>525</strong> Tailwind hackers find it useful. I'd love
-                        you to join.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-
-
     </div>
-
 </body>
 
 </html>

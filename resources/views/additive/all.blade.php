@@ -17,12 +17,11 @@
         @foreach ($additives as $additive)
             <div class="p-4">
                 <a href="{{ route('additive.show', ['additive' => $additive->id]) }}">
-                    <div
-                        class="p-4 rounded-lg items-center shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-200 hover:-translate-y-1">
-                        <p class="text-xl font-bold leading-relaxed text-gray-800 dark:text-gray-300">
+                    <div class="additive-card">
+                        <p class="title">
                             {{ $additive->title }}
                         </p>
-                        <p class="text-lg text-gray-600 dark:text-gray-200">{{ $additive->e_code }}</p>
+                        <p class="subtitle">{{ $additive->e_code }}</p>
                     </div>
                 </a>
             </div>
