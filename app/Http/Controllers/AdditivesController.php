@@ -77,15 +77,4 @@ class AdditivesController extends Controller
         ];
         return view('dashboard', compact('stat'));
     }
-
-    public function api_index()
-    {
-        $additives = Additives::all();
-        return response($additives->toJson())->header('Content-Type', 'application/json');
-    }
-
-    public function api_show(Additives $additive)
-    {
-        return response($additive->toJson())->header('Content-Type', 'application/json');
-    }
 }

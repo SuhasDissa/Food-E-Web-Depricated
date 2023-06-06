@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\AdditivesApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/all', [AdditivesApiController::class, 'index'])->name('api.all');
 
-Route::get('/api/all', [AdditivesController::class, 'api_index'])->name('api.all');
-
-Route::get('/api/{additive}', [AdditivesController::class, 'api_show'])->name('api.show');
-
+Route::get('/{additive}', [AdditivesApiController::class, 'show'])->name('api.show');
