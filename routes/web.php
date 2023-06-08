@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/additive/{additive}', [AdditivesController::class, 'show'])->name('additive.show');
 
-Route::get('/edit/{additive}', [AdditivesController::class, 'edit'])->middleware(['auth', 'verified'])->name('additive.edit');
+Route::get('/edit/{additive}', [AdditivesController::class, 'edit'])->name('additive.edit');
 
 Route::patch('/additive', [AdditivesController::class, 'update'])->middleware(['auth', 'verified'])->name('additive.update');
 

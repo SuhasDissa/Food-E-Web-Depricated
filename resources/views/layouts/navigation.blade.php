@@ -20,7 +20,7 @@
                     <!-- Logo -->
                     <a href="{{ route('dashboard') }}" class="flex items-center pl-2">
                         <x-application-logo class="block h-9 w-auto" />
-                        <p class="text-3xl text-black dark:text-white">
+                        <p class="text-2xl sm:text-3xl text-black dark:text-white">
                             Food E
                         </p>
 
