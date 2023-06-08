@@ -45,13 +45,13 @@ class AdditivesController extends Controller
         ]);
 
         $additive = Additives::find($data['id']);
-
+/*
         $user_id = Auth::id();
         $contributions = Contributions::firstOrNew(['user_id' => $user_id]);
         $contributions->contribution_count += 1;
         $contributions->user_id = $user_id;
         $contributions->save();
-
+*/
         $additive->update($data);
 
         return Redirect::route('additive.show', ['additive' => request()->input('id')])->with('status', 'additive-updated');

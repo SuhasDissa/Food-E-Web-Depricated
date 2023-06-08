@@ -27,7 +27,7 @@ Route::get('/additive/{additive}', [AdditivesController::class, 'show'])->name('
 
 Route::get('/edit/{additive}', [AdditivesController::class, 'edit'])->name('additive.edit');
 
-Route::patch('/additive', [AdditivesController::class, 'update'])->middleware(['auth', 'verified'])->name('additive.update');
+Route::patch('/additive', [AdditivesController::class, 'update'])->name('additive.update');
 
 Route::get('/additives', [AdditivesController::class, 'index'])->name('additive.index');
 
